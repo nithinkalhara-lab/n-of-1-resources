@@ -4,6 +4,10 @@ A practical, plain-language guide for people facing an ultra-rare or "N-of-1" ge
 
 This is a curated map of **communities, registries, and treatment pathways**. It is a starting point, not medical advice.
 
+> **Browse it interactively:** open [`index.html`](index.html) (filter by category, region and audience), or deploy it with GitHub Pages.
+>
+> **Query it from the command line:** see [`tools/`](tools/) for a small polyglot toolkit (Python, Go, Rust, C++) over the same dataset.
+
 ---
 
 ## What is an "N-of-1" condition?
@@ -95,8 +99,30 @@ Most ultra-rare conditions have no approved treatment — but a small and growin
 - **Orphanet** — https://www.orpha.net/ — the reference database on rare diseases.
 - **OMIM** — https://www.omim.org/ — catalog of Mendelian disorders; searchable by symptom.
 - **GeneReviews** — https://www.ncbi.nlm.nih.gov/books/NBK1116/ — peer-reviewed clinical descriptions.
+- **GARD** — https://rarediseases.info.nih.gov/ — NIH plain-language summaries of rare diseases.
 - **ClinicalTrials.gov** — https://clinicaltrials.gov/
 - **PubMed** — https://pubmed.ncbi.nlm.nih.gov/
+
+---
+
+## Tools
+
+Everything above also lives as a machine-readable dataset in [`data/resources.json`](data/resources.json), which powers both the web page and a small toolkit in [`tools/`](tools/):
+
+| Tool | Language | Reads | Build |
+|---|---|---|---|
+| `tools/python/rare.py` | Python | `data/resources.json` | none needed |
+| `tools/go` | Go | `data/resources.json` | `go build -o rare ./tools/go` |
+| `tools/rust` | Rust | `data/resources.json` | `cargo build --release --manifest-path tools/rust/Cargo.toml` |
+| `tools/cpp` | C++ | `data/resources.tsv` | `make -C tools/cpp` |
+
+Each exposes the same commands: `list`, `search <q>`, `cat <category>`, `stats`, `validate`.
+
+```bash
+python3 tools/python/rare.py cat treatment
+```
+
+See [`tools/README.md`](tools/README.md) for details and verification status.
 
 ---
 
@@ -105,7 +131,6 @@ Most ultra-rare conditions have no approved treatment — but a small and growin
 - **This is not medical advice.** It is a directory. Every decision should go through a qualified clinician.
 - **Peer communities are for support and lived experience, not diagnosis.** They are enormously valuable for the practical and emotional side — and unreliable as a source of clinical fact.
 - **Beware of unproven treatments.** Rare-disease desperation attracts people selling certainty. Prefer interventions with published evidence and regulatory oversight.
-- **For cookie/session-based platforms, use a secondary account** — not relevant here, but worth stating for any tooling you connect.
 
 ---
 
