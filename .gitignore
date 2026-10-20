@@ -1,0 +1,16 @@
+# build artefacts
+tools/cpp/rare
+tools/go/rare
+tools/rust/target/
+*.o
+*.exe
+
+# python
+__pycache__/
+*.pyc
+
+# generated
+data/resources.tsv
+
+# os
+.DS_Store
