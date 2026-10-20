@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>N-of-1 &amp; Ultra-Rare Disease Resources</title>
+<meta name="description" content="A filterable directory of communities, registries, treatment pathways and reference tools for ultra-rare / N-of-1 genetic conditions." />
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #171a21;
+    --panel-2: #1e222b;
+    --text: #e8eaed;
+    --muted: #9aa3b2;
+    --line: #2a2f3a;
+    --accent: #7b61ff;
+    --community: #46d160;
+    --registry: #4a9eff;
+    --treatment: #ff8c00;
+    --reference: #b07cff;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 40px 20px 80px; }
+  header h1 { font-size: 2rem; margin: 0 0 8px; letter-spacing: -0.02em; }
+  header p.lede { color: var(--muted); margin: 0 0 6px; max-width: 62ch; }
+  header .meta { color: var(--muted); font-size: 0.85rem; margin-top: 14px; }
+  header a { color: var(--accent); text-decoration: none; }
+  header a:hover { text-decoration: underline; }
+
+  .controls { position: sticky; top: 0; background: linear-gradient(var(--bg) 70%, transparent); padding: 18px 0 12px; z-index: 5; }
+  .searchrow { display: flex; gap: 10px; flex-wrap: wrap; }
+  input[type="search"], select {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    color: var(--text);
+    border-radius: 10px;
+    padding: 11px 14px;
+    font-size: 0.95rem;
+    outline: none;
+  }
+  input[type="search"] { flex: 1 1 260px; }
+  input[type="search"]:focus, select:focus { border-color: var(--accent); }
+
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  .chip {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    color: var(--muted);
+    border-radius: 999px;
+    padding: 7px 14px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    user-select: none;
+    transition: all .12s ease;
+  }
+  .chip:hover { color: var(--text); border-color: #3a4150; }
+  .chip[aria-pressed="true"] { color: #fff; border-color: transparent; }
+  .chip[data-cat="all"][aria-pressed="true"] { background: var(--accent); }
+  .chip[data-cat="community"][aria-pressed="true"] { background: var(--community); color: #06210d; }
+  .chip[data-cat="registry"][aria-pressed="true"] { background: var(--registry); color: #04182f; }
+  .chip[data-cat="treatment"][aria-pressed="true"] { background: var(--treatment); color: #2a1400; }
+  .chip[data-cat="reference"][aria-pressed="true"] { background: var(--reference); color: #1d0b3a; }
+
+  .count { color: var(--muted); font-size: 0.85rem; margin: 16px 0 4px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 14px; margin-top: 14px; }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 16px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: border-color .12s ease, transform .12s ease;
+  }
+  .card:hover { border-color: #3a4150; transform: translateY(-1px); }
+  .card h3 { margin: 0; font-size: 1.02rem; letter-spacing: -0.01em; }
+  .card h3 a { color: var(--text); text-decoration: none; }
+  .card h3 a:hover { color: var(--accent); }
+  .badge {
+    align-self: flex-start;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+  .badge.community { background: rgba(70,209,96,.15); color: var(--community); }
+  .badge.registry { background: rgba(74,158,255,.15); color: var(--registry); }
+  .badge.treatment { background: rgba(255,140,0,.15); color: var(--treatment); }
+  .badge.reference { background: rgba(176,124,255,.15); color: var(--reference); }
+  .card p { margin: 0; color: #c3c9d4; font-size: 0.9rem; }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 2px; }
+  .tag { font-size: 0.72rem; color: var(--muted); background: var(--panel-2); border-radius: 6px; padding: 2px 7px; }
+  .card .url { font-size: 0.78rem; color: var(--muted); word-break: break-all; margin-top: auto; }
+  .empty { color: var(--muted); padding: 40px 0; text-align: center; }
+  .err { background: #2a1518; border: 1px solid #5a2530; color: #ffb3bd; padding: 14px 16px; border-radius: 10px; margin-top: 20px; font-size: .9rem; }
+  footer { margin-top: 60px; color: var(--muted); font-size: 0.82rem; border-top: 1px solid var(--line); padding-top: 18px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>N-of-1 &amp; Ultra-Rare Disease Resources</h1>
+    <p class="lede">A filterable directory of communities, registries, treatment pathways and reference tools for people facing an ultra-rare or &ldquo;N-of-1&rdquo; genetic diagnosis.</p>
+    <div class="meta">
+      <span id="total">&hellip;</span> resources &middot;
+      part of <a href="https://github.com/nithinkalhara-lab/n-of-1-resources">n-of-1-resources</a> &middot;
+      <a href="https://github.com/nithinkalhara-lab/n-of-1-resources/blob/main/docs/playbook.md">step-by-step playbook</a>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="searchrow">
+      <input id="q" type="search" placeholder="Search name, description, tag&hellip;" aria-label="Search resources" />
+      <select id="region" aria-label="Filter by region">
+        <option value="">All regions</option>
+      </select>
+      <select id="audience" aria-label="Filter by audience">
+        <option value="">All audiences</option>
+      </select>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Filter by category">
+      <button class="chip" data-cat="all" aria-pressed="true">All</button>
+      <button class="chip" data-cat="community" aria-pressed="false">Community</button>
+      <button class="chip" data-cat="registry" aria-pressed="false">Registry</button>
+      <button class="chip" data-cat="treatment" aria-pressed="false">Treatment</button>
+      <button class="chip" data-cat="reference" aria-pressed="false">Reference</button>
+    </div>
+  </div>
+
+  <div class="count" id="count"></div>
+  <main class="grid" id="grid"></main>
+  <div class="empty" id="empty" hidden>No resources match those filters.</div>
+  <div class="err" id="err" hidden></div>
+
+  <footer>
+    Not medical advice &mdash; a directory. Every decision belongs with a qualified clinician.
+  </footer>
+</div>
+
+<script>
+(function () {
+  var DATA_URL = "data/resources.json";
+  var state = { q: "", cat: "all", region: "", audience: "" };
+  var ALL = [];
+
+  var grid = document.getElementById("grid");
+  var count = document.getElementById("count");
+  var empty = document.getElementById("empty");
+  var errBox = document.getElementById("err");
+  var qEl = document.getElementById("q");
+  var regionEl = document.getElementById("region");
+  var audienceEl = document.getElementById("audience");
+  var chips = document.getElementById("chips");
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function uniqueSorted(list) {
+    var seen = {};
+    list.forEach(function (v) { if (v) seen[v] = true; });
+    return Object.keys(seen).sort();
+  }
+
+  function matches(r) {
+    if (state.cat !== "all" && r.category !== state.cat) return false;
+    if (state.region && r.region !== state.region) return false;
+    if (state.audience && (r.audience || []).indexOf(state.audience) === -1) return false;
+    if (state.q) {
+      var hay = (r.name + " " + r.description + " " + (r.tags || []).join(" ") + " " + (r.audience || []).join(" ")).toLowerCase();
+      if (hay.indexOf(state.q) === -1) return false;
+    }
+    return true;
+  }
+
+  function card(r) {
+    var tags = (r.tags || []).map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join("");
+    return '<article class="card">' +
+      '<span class="badge ' + esc(r.category) + '">' + esc(r.category) + '</span>' +
+      '<h3><a href="' + esc(r.url) + '" target="_blank" rel="noopener noreferrer">' + esc(r.name) + '</a></h3>' +
+      '<p>' + esc(r.description) + '</p>' +
+      (tags ? '<div class="tags">' + tags + '</div>' : '') +
+      '<div class="url">' + esc(r.region) + '</div>' +
+      '</article>';
+  }
+
+  function render() {
+    var rows = ALL.filter(matches);
+    grid.innerHTML = rows.map(card).join("");
+    count.textContent = "Showing " + rows.length + " of " + ALL.length + " resources";
+    empty.hidden = rows.length !== 0;
+  }
+
+  function fillSelect(el, values, label) {
+    values.forEach(function (v) {
+      var o = document.createElement("option");
+      o.value = v;
+      o.textContent = label(v);
+      el.appendChild(o);
+    });
+  }
+
+  function init(data) {
+    ALL = data.resources || [];
+    document.getElementById("total").textContent = ALL.length;
+    fillSelect(regionEl, uniqueSorted(ALL.map(function (r) { return r.region; })), function (v) {
+      return v === "global" ? "Global" : v.toUpperCase();
+    });
+    var aud = [];
+    ALL.forEach(function (r) { aud = aud.concat(r.audience || []); });
+    fillSelect(audienceEl, uniqueSorted(aud), function (v) {
+      return v.charAt(0).toUpperCase() + v.slice(1);
+    });
+    render();
+  }
+
+  qEl.addEventListener("input", function (e) { state.q = e.target.value.trim().toLowerCase(); render(); });
+  regionEl.addEventListener("change", function (e) { state.region = e.target.value; render(); });
+  audienceEl.addEventListener("change", function (e) { state.audience = e.target.value; render(); });
+  chips.addEventListener("click", function (e) {
+    var btn = e.target.closest(".chip");
+    if (!btn) return;
+    state.cat = btn.getAttribute("data-cat");
+    Array.prototype.forEach.call(chips.querySelectorAll(".chip"), function (c) {
+      c.setAttribute("aria-pressed", c === btn ? "true" : "false");
+    });
+    render();
+  });
+
+  fetch(DATA_URL)
+    .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(init)
+    .catch(function (e) {
+      errBox.hidden = false;
+      errBox.textContent = "Could not load " + DATA_URL + " (" + e.message + "). If you opened this file directly, serve it over HTTP instead — e.g. `python3 -m http.server` — or view it on GitHub Pages.";
+    });
+})();
+</script>
+</body>
+</html>
