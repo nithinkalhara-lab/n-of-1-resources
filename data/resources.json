@@ -1,0 +1,505 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-10-21",
+  "description": "Structured dataset of communities, registries, treatment pathways and reference tools for ultra-rare / N-of-1 genetic conditions.",
+  "categories": [
+    "community",
+    "registry",
+    "treatment",
+    "reference"
+  ],
+  "resources": [
+    {
+      "id": "r-rarediseases",
+      "name": "r/rarediseases",
+      "url": "https://www.reddit.com/r/rarediseases/",
+      "category": "community",
+      "description": "The main rare-disease community on Reddit. Runs recurring 'Diagnostic Odyssey' megathreads for people still seeking a diagnosis.",
+      "audience": [
+        "patients",
+        "families"
+      ],
+      "region": "global",
+      "tags": [
+        "reddit",
+        "peer-support",
+        "undiagnosed"
+      ]
+    },
+    {
+      "id": "r-biotech",
+      "name": "r/biotech",
+      "url": "https://www.reddit.com/r/biotech/",
+      "category": "community",
+      "description": "Where families often ask about nano-rare treatment options and get pointed toward the right organisations.",
+      "audience": [
+        "patients",
+        "families",
+        "researchers"
+      ],
+      "region": "global",
+      "tags": [
+        "reddit",
+        "treatment",
+        "nano-rare"
+      ]
+    },
+    {
+      "id": "r-livingwithhirayama",
+      "name": "r/LivingWithHirayama",
+      "url": "https://www.reddit.com/r/LivingWithHirayama/",
+      "category": "community",
+      "description": "Example of a condition-specific subreddit started by a patient because no community existed for a very rare disease.",
+      "audience": [
+        "patients",
+        "families"
+      ],
+      "region": "global",
+      "tags": [
+        "reddit",
+        "peer-support",
+        "condition-specific"
+      ]
+    },
+    {
+      "id": "dna-unicorn",
+      "name": "DNA Unicorn",
+      "url": "https://dnaunicorn.org/",
+      "category": "community",
+      "description": "A resource built specifically for the N-of-1 community, including how-to guides for running your own search campaign across social media and registries.",
+      "audience": [
+        "patients",
+        "families"
+      ],
+      "region": "global",
+      "tags": [
+        "n-of-1",
+        "advocacy",
+        "how-to"
+      ]
+    },
+    {
+      "id": "nord",
+      "name": "NORD (National Organization for Rare Disorders)",
+      "url": "https://rarediseases.org/",
+      "category": "community",
+      "description": "US umbrella organisation for rare disease; disease reports, advocacy, and patient assistance programmes.",
+      "audience": [
+        "patients",
+        "families",
+        "clinicians"
+      ],
+      "region": "us",
+      "tags": [
+        "advocacy",
+        "disease-reports"
+      ]
+    },
+    {
+      "id": "eurordis",
+      "name": "EURORDIS",
+      "url": "https://www.eurordis.org/",
+      "category": "community",
+      "description": "European umbrella alliance of rare disease patient organisations.",
+      "audience": [
+        "patients",
+        "families"
+      ],
+      "region": "eu",
+      "tags": [
+        "advocacy",
+        "policy"
+      ]
+    },
+    {
+      "id": "rare-portal-au",
+      "name": "Rare Portal (Australia)",
+      "url": "https://www.rareportal.org.au/",
+      "category": "community",
+      "description": "Australian rare disease information and support, including guidance for undiagnosed patients.",
+      "audience": [
+        "patients",
+        "families"
+      ],
+      "region": "au",
+      "tags": [
+        "advocacy",
+        "undiagnosed"
+      ]
+    },
+    {
+      "id": "genetic-alliance-uk",
+      "name": "Genetic Alliance UK",
+      "url": "https://www.geneticalliance.org.uk/",
+      "category": "community",
+      "description": "UK alliance of organisations supporting people affected by genetic conditions.",
+      "audience": [
+        "patients",
+        "families"
+      ],
+      "region": "uk",
+      "tags": [
+        "advocacy"
+      ]
+    },
+    {
+      "id": "global-genes",
+      "name": "Global Genes",
+      "url": "https://globalgenes.org/",
+      "category": "community",
+      "description": "Global rare disease advocacy and patient data programmes (parent of RARE-X).",
+      "audience": [
+        "patients",
+        "families",
+        "researchers"
+      ],
+      "region": "global",
+      "tags": [
+        "advocacy",
+        "data"
+      ]
+    },
+    {
+      "id": "udnf",
+      "name": "Undiagnosed Diseases Network Foundation (UDNF)",
+      "url": "https://www.udnf.org/",
+      "category": "community",
+      "description": "Patient-led foundation supporting people who remain undiagnosed.",
+      "audience": [
+        "patients",
+        "families"
+      ],
+      "region": "global",
+      "tags": [
+        "undiagnosed",
+        "advocacy"
+      ]
+    },
+    {
+      "id": "mygene2",
+      "name": "MyGene2",
+      "url": "https://www.mygene2.org/",
+      "category": "registry",
+      "description": "Patient portal to find others with the same gene or phenotype; feeds into Matchmaker Exchange.",
+      "audience": [
+        "patients",
+        "families",
+        "clinicians"
+      ],
+      "region": "global",
+      "tags": [
+        "matching",
+        "gene",
+        "phenotype"
+      ]
+    },
+    {
+      "id": "matchmaker-exchange",
+      "name": "Matchmaker Exchange",
+      "url": "https://www.matchmakerexchange.org/",
+      "category": "registry",
+      "description": "Federated network that lets one query search many rare-disease registries at once.",
+      "audience": [
+        "clinicians",
+        "researchers"
+      ],
+      "region": "global",
+      "tags": [
+        "matching",
+        "federated"
+      ]
+    },
+    {
+      "id": "genematcher",
+      "name": "GeneMatcher",
+      "url": "https://genematcher.org/",
+      "category": "registry",
+      "description": "Researcher-to-researcher service for matching cases by gene.",
+      "audience": [
+        "researchers",
+        "clinicians"
+      ],
+      "region": "global",
+      "tags": [
+        "matching",
+        "gene",
+        "research"
+      ]
+    },
+    {
+      "id": "genomeconnect",
+      "name": "GenomeConnect",
+      "url": "https://www.genomeconnect.org/",
+      "category": "registry",
+      "description": "Share genetic and health results securely and be matched with others.",
+      "audience": [
+        "patients",
+        "families"
+      ],
+      "region": "global",
+      "tags": [
+        "matching",
+        "data-sharing"
+      ]
+    },
+    {
+      "id": "udn",
+      "name": "Undiagnosed Diseases Network (UDN)",
+      "url": "https://undiagnosed.hms.harvard.edu/",
+      "category": "registry",
+      "description": "NIH-funded clinical research network for people without a diagnosis; genome sequencing plus expert review.",
+      "audience": [
+        "patients",
+        "families",
+        "clinicians"
+      ],
+      "region": "us",
+      "tags": [
+        "undiagnosed",
+        "sequencing",
+        "clinical"
+      ]
+    },
+    {
+      "id": "rare-x",
+      "name": "RARE-X",
+      "url": "https://rare-x.org/",
+      "category": "registry",
+      "description": "Structured, patient-led data collection platform to accelerate rare disease research.",
+      "audience": [
+        "patients",
+        "families",
+        "researchers"
+      ],
+      "region": "global",
+      "tags": [
+        "data",
+        "research"
+      ]
+    },
+    {
+      "id": "n-lorem",
+      "name": "n-Lorem Foundation",
+      "url": "https://www.nlorem.org/",
+      "category": "treatment",
+      "description": "Develops bespoke antisense oligonucleotide (ASO) therapies for nano-rare patients and provides them free for life. Usually requires a physician referral.",
+      "audience": [
+        "patients",
+        "families",
+        "clinicians"
+      ],
+      "region": "global",
+      "tags": [
+        "aso",
+        "n-of-1",
+        "free-treatment"
+      ]
+    },
+    {
+      "id": "n1-collaborative",
+      "name": "N=1 Collaborative",
+      "url": "https://www.n1collaborative.org/",
+      "category": "treatment",
+      "description": "International hub for individualised medicines; connects the people building N-of-1 therapies.",
+      "audience": [
+        "patients",
+        "families",
+        "clinicians",
+        "researchers"
+      ],
+      "region": "global",
+      "tags": [
+        "n-of-1",
+        "network"
+      ]
+    },
+    {
+      "id": "1m1m",
+      "name": "1 Mutation 1 Medicine (1M1M)",
+      "url": "https://www.1m1m.org/",
+      "category": "treatment",
+      "description": "European consortium building a best-practice framework for evaluating patients for tailored genomic therapies.",
+      "audience": [
+        "clinicians",
+        "researchers",
+        "families"
+      ],
+      "region": "eu",
+      "tags": [
+        "n-of-1",
+        "framework",
+        "aso"
+      ]
+    },
+    {
+      "id": "every-cure",
+      "name": "Every Cure",
+      "url": "https://everycure.org/",
+      "category": "treatment",
+      "description": "Nonprofit working to repurpose already-approved drugs for diseases they were not originally developed for.",
+      "audience": [
+        "patients",
+        "families",
+        "clinicians"
+      ],
+      "region": "global",
+      "tags": [
+        "repurposing",
+        "drugs"
+      ]
+    },
+    {
+      "id": "milas-miracle",
+      "name": "Mila's Miracle Foundation",
+      "url": "https://milasmiraclefoundation.org/",
+      "category": "treatment",
+      "description": "The foundation behind milasen, the first drug custom-made for a single person; advocates for N-of-1 therapy development.",
+      "audience": [
+        "patients",
+        "families",
+        "clinicians"
+      ],
+      "region": "global",
+      "tags": [
+        "n-of-1",
+        "aso",
+        "advocacy"
+      ]
+    },
+    {
+      "id": "lydian-accelerator",
+      "name": "Lydian Accelerator",
+      "url": "https://www.lydianaccelerator.org/",
+      "category": "treatment",
+      "description": "Nonprofit building an open platform to make individualised genetic treatments routine.",
+      "audience": [
+        "patients",
+        "families",
+        "researchers"
+      ],
+      "region": "global",
+      "tags": [
+        "n-of-1",
+        "platform",
+        "open"
+      ]
+    },
+    {
+      "id": "clinicaltrials",
+      "name": "ClinicalTrials.gov",
+      "url": "https://clinicaltrials.gov/",
+      "category": "reference",
+      "description": "Registry of clinical studies worldwide; find trials, principal investigators and enrolling sites.",
+      "audience": [
+        "patients",
+        "families",
+        "clinicians"
+      ],
+      "region": "global",
+      "tags": [
+        "trials",
+        "search"
+      ]
+    },
+    {
+      "id": "orphanet",
+      "name": "Orphanet",
+      "url": "https://www.orpha.net/",
+      "category": "reference",
+      "description": "The reference database on rare diseases, with prevalence and nomenclature.",
+      "audience": [
+        "clinicians",
+        "researchers",
+        "families"
+      ],
+      "region": "global",
+      "tags": [
+        "database",
+        "prevalence"
+      ]
+    },
+    {
+      "id": "omim",
+      "name": "OMIM",
+      "url": "https://www.omim.org/",
+      "category": "reference",
+      "description": "Catalogue of Mendelian disorders, searchable by symptom or phenotype.",
+      "audience": [
+        "clinicians",
+        "researchers"
+      ],
+      "region": "global",
+      "tags": [
+        "database",
+        "phenotype",
+        "gene"
+      ]
+    },
+    {
+      "id": "genereviews",
+      "name": "GeneReviews",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK1116/",
+      "category": "reference",
+      "description": "Peer-reviewed clinical descriptions of genetic conditions, including management.",
+      "audience": [
+        "clinicians",
+        "researchers"
+      ],
+      "region": "global",
+      "tags": [
+        "clinical",
+        "peer-reviewed"
+      ]
+    },
+    {
+      "id": "gard",
+      "name": "GARD (Genetic and Rare Diseases Information Center)",
+      "url": "https://rarediseases.info.nih.gov/",
+      "category": "reference",
+      "description": "NIH information centre with plain-language summaries of thousands of rare diseases.",
+      "audience": [
+        "patients",
+        "families",
+        "clinicians"
+      ],
+      "region": "us",
+      "tags": [
+        "information",
+        "plain-language"
+      ]
+    },
+    {
+      "id": "pubmed",
+      "name": "PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/",
+      "category": "reference",
+      "description": "Biomedical literature database; the primary place to read published case reports for an ultra-rare variant.",
+      "audience": [
+        "clinicians",
+        "researchers",
+        "families"
+      ],
+      "region": "global",
+      "tags": [
+        "literature",
+        "research"
+      ]
+    },
+    {
+      "id": "facematch",
+      "name": "FaceMatch",
+      "url": "https://facematch.org/",
+      "category": "reference",
+      "description": "Free tool that attempts to suggest a diagnosis by matching facial features against people who already have a diagnosis.",
+      "audience": [
+        "families",
+        "clinicians"
+      ],
+      "region": "global",
+      "tags": [
+        "diagnosis",
+        "phenotype"
+      ]
+    }
+  ]
+}
